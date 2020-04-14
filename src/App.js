@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+
+import Chart from "./components/Chart";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css"
+import {Col, Container, Row} from "react-bootstrap";
+import {actions} from "./store/infection";
+import {useDispatch} from "react-redux";
+import CountryPicker from "./components/CountryPicker";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(actions.getListOfCountries())
+    }, []);
+
+    return (
+        <div className="App">
+            <Container>
+                <Row>
+                    <Col>
+                        <Chart/>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    );
 }
 
 export default App;
