@@ -7,6 +7,9 @@ const initialState = {
     "listOfCountries": []
 };
 
+const api = "http://api.covidcurves.betacode.tech/v1";
+// const api = "http://localhost:5000/v1";
+
 export const types = {
     LOAD_INFECTION_DATA: "LOAD_INFECTION_DATA",
     LOAD_COUNTRIES: "LOAD_COUNTRIES",
@@ -16,7 +19,7 @@ export const types = {
 export const actions = {
     "getListOfCountries": () => {
         return (dispatch) => {
-            const url = "http://localhost:5000/v1/countries";
+            const url = `${api}/countries`;
 
             fetch(url).then((response) => {
                 if (response.ok) {
@@ -34,7 +37,7 @@ export const actions = {
                 countries += selectedCountries[i].value+","
             }
 
-            const url = `http://localhost:5000/v1/infection?countries=${countries}`;
+            const url = `${api}/infection?countries=${countries}`;
 
             fetch(url).then((response) => {
                 if (response.ok) {
