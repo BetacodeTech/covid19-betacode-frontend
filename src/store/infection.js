@@ -29,8 +29,8 @@ const initialState = {
     "listOfCountries": []
 };
 
-// const api = "http://api.covidcurves.betacode.tech/v1";
-const api = "http://localhost:5010/v1";
+const api = "http://api.covidcurves.betacode.tech/v1";
+// const api = "http://localhost:5010/v1";
 
 export const types = {
     LOAD_CASES_PER_MILLION: "LOAD_CASES_PER_MILLION",
