@@ -1,8 +1,6 @@
-import React, {useEffect} from "react"
-import {useDispatch, useSelector} from "react-redux";
+import React from "react"
 import {Brush, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
-import {actions} from "../store/infection";
-import CountryPicker from "./CountryPicker";
+import Card from "./Card";
 
 
 const getRandomColor = () => {
@@ -14,19 +12,11 @@ const getRandomColor = () => {
     return color;
 };
 
-const Chart = () => {
-
-    const dispatch = useDispatch();
-    const infectionData = useSelector(state => state.infection.infectionData);
-    const selectedCountries = useSelector(state => state.infection.selectedCountries);
-
-    useEffect(() => {
-        dispatch(actions.getInfectionData(selectedCountries))
-    }, [selectedCountries]);
+const Chart = ({infectionData, selectedCountries, title}) => {
 
     return (
-        <div style={styles.container}>
-            <h1 style={styles.title}> Chart title </h1>
+        <Card>
+            <h1 style={styles.title}> {title} </h1>
             <div style={styles.chartContainer}>
                 <ResponsiveContainer>
                     <LineChart
@@ -37,17 +27,14 @@ const Chart = () => {
                         <XAxis dataKey="day"/>
                         <Tooltip/>
                         <CartesianGrid stroke="#f5f5f5"/>
-                        {infectionData.countries && infectionData.countries.map(
-                            (country) => <Line type="monotone" dataKey={country} stroke={getRandomColor()}/>)
+                        {selectedCountries && selectedCountries.map(
+                            (country) => <Line type="monotone" dataKey={country.value} stroke={country.color}/>)
                         }
-
-                        <Line type="monotone" dataKey="deaths" stroke="#387908"/>
                         <Brush/>
                     </LineChart>
                 </ResponsiveContainer>
             </div>
-            <CountryPicker/>
-        </div>
+        </Card>
     );
 };
 

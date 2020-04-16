@@ -1,0 +1,9 @@
+{
+  "JWT": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODY4ODQyNTEsIm5iZiI6MTU4Njg4NDI1MSwianRpIjoiMGZiMDA0MGQtYTAxNi00MmE1LTg4YmItNTA3NDY3NjJiNDZlIiwiaWRlbnRpdHkiOnsiaWQiOjYsInVzZXJuYW1lIjoiY292aWQxOWJldGFjb2RlIiwiYXBwcyI6W119LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.IflDbjD9bh7K2XBo5nsm1DGcrEc4-4v6kEP_R-7L25E",
+  "projectName": "Covid19 Curves",
+  "app_id": 8,
+  "languages": [
+    "PT",
+    "EN"
+  ]
+}
