@@ -1,4 +1,5 @@
 const initialState = {
+    "infectionData": null,
     "casesPerMillion": {
         "data": [],
         "countries": []
@@ -8,11 +9,11 @@ const initialState = {
         "countries": []
     },
     "selectedCountries": [
-        {value:"PRT", label:"Portugal", color:"#4240A1"},
-        {value: "ITA", label: "Italy" , color:"#DF7242"},
-        {value: "ESP", label: "Spain" , color:"#2C546B"},
-        {value: "USA", label: "United States" , color:"#D0568C"},
-        {value: "GBR", label: "United Kingdom" , color:"#007ED5"}
+        {value: "PRT", label: "Portugal", color: "#4240A1"},
+        {value: "ITA", label: "Italy", color: "#DF7242"},
+        {value: "ESP", label: "Spain", color: "#2C546B"},
+        {value: "USA", label: "United States", color: "#D0568C"},
+        {value: "GBR", label: "United Kingdom", color: "#007ED5"}
     ],
     "color": [
         "#4240A1",
@@ -29,14 +30,15 @@ const initialState = {
     "listOfCountries": []
 };
 
-const api = "http://api.covidcurves.betacode.tech/v1";
-// const api = "http://localhost:5010/v1";
+// const api = "http://api.covidcurves.betacode.tech/v1";
+const api = "http://localhost:5010/v1";
 
 export const types = {
     LOAD_CASES_PER_MILLION: "LOAD_CASES_PER_MILLION",
     LOAD_DEATHS_PER_MILLION: "LOAD_DEATHS_PER_MILLION",
     LOAD_COUNTRIES: "LOAD_COUNTRIES",
-    SET_SELECTED_COUNTRIES: "SET_SELECTED_COUNTRIES"
+    LOAD_INFECTION_DATA: "LOAD_INFECTION_DATA",
+    SET_SELECTED_COUNTRIES: "SET_SELECTED_COUNTRIES",
 };
 
 
@@ -56,6 +58,21 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadCountries(data));
+                    });
+                }
+            })
+        }
+    },
+    "getInfectionData": (selectedCountries) => {
+        return (dispatch) => {
+            const countries = actions.getCountriesCommaSepareted(selectedCountries);
+
+            const url = `${api}/infection/all?countries=${countries}`;
+
+            fetch(url).then((response) => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        dispatch(actions.loadInfectionData(data));
                     });
                 }
             })
@@ -110,6 +127,12 @@ export const actions = {
             listOfCountries
         }
     },
+    "loadInfectionData": (infectionData) => {
+        return {
+            type: types.LOAD_INFECTION_DATA,
+            infectionData
+        }
+    },
     "setSelectCountries": (selectedCountries) => {
         return {
             type: types.SET_SELECTED_COUNTRIES,
@@ -120,6 +143,9 @@ export const actions = {
 
 const infectionReducer = (state = initialState, action) => {
     switch (action.type) {
+        case types.LOAD_INFECTION_DATA:
+            const infectionData = action.infectionData;
+            return {...state, infectionData};
         case types.LOAD_COUNTRIES:
             const listOfCountries = action.listOfCountries;
             return {...state, listOfCountries};
@@ -131,7 +157,7 @@ const infectionReducer = (state = initialState, action) => {
             return {...state, deathsPerMillion};
         case types.SET_SELECTED_COUNTRIES:
             const selectedCountries = action.selectedCountries;
-            for(let i in selectedCountries){
+            for (let i in selectedCountries) {
                 const country = selectedCountries[i];
                 country.color = state.color[i];
             }
