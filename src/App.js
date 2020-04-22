@@ -16,6 +16,8 @@ import Info from "./components/Info";
 import "./styles/light.css"
 import Portlet from "./components/Portlet";
 
+import Footer from "./components/footer/Footer";
+
 function App() {
     const dispatch = useDispatch();
 
@@ -36,27 +38,30 @@ function App() {
 
 
     return (
-        <div className="App" style={{margin:20}}>
-            <Row>
-                <Col>
-                    <CountryPicker/>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Portlet title={t('title.casespermillion')} subtitle={t('subtitle.casespermillion')}>
-                        <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries}/>
-                    </Portlet>
-                    <Info title={t('info.casespermillion.title')} text={t('info.casespermillion.text')} />
-                </Col>
-                <Col>
-                    <Portlet title={t('title.deathspermillion')} subtitle={t('subtitle.deathspermillion')}>
-                        <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries}/>
-                    </Portlet>
-                    <Info title={t('info.deathspermillion.title')} text={t('info.deathspermillion.text')} />
-                </Col>
-            </Row>
-        </div>
+        <>
+            <div className="App" style={{margin:20}}>
+                <Row>
+                    <Col>
+                        <CountryPicker/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Portlet title={t('title.casespermillion')} subtitle={t('subtitle.casespermillion')}>
+                            <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries}/>
+                        </Portlet>
+                        <Info title={t('info.casespermillion.title')} text={t('info.casespermillion.text')} />
+                    </Col>
+                    <Col>
+                        <Portlet title={t('title.deathspermillion')} subtitle={t('subtitle.deathspermillion')}>
+                            <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries}/>
+                        </Portlet>
+                        <Info title={t('info.deathspermillion.title')} text={t('info.deathspermillion.text')} />
+                    </Col>
+                </Row>
+            </div>
+            <Footer/>
+        </>
     );
 }
 
