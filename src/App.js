@@ -30,6 +30,7 @@ function App() {
     }, []);
 
     useEffect(() => {
+        dispatch(actions.getInfectionData(selectedCountries));
         dispatch(actions.getCasesPerMillion(selectedCountries));
         dispatch(actions.getDeathsPerMillion(selectedCountries));
     }, [selectedCountries]);
