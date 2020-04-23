@@ -1,6 +1,6 @@
 import React from "react";
 
-const Link = ({label, url}) => {
+const Link = ({image, url, description}) => {
 
   const handleOnClick = () => {
     window.open(url, "_blank");
@@ -8,23 +8,22 @@ const Link = ({label, url}) => {
 
     return (
         <div style={styles.container}>
-            <h4>{label}</h4>
-            <p style={styles.url} onClick={handleOnClick}>{
-              url}
-            </p>
+          <img src={image} style={styles.img} onClick={handleOnClick}/>
+          <p style={{marginTop: 0}}>{description}</p>
         </div>
     );
 }
 
 const styles = {
     container: {
-        display: "grid",
-        gridTemplateRows: "auto auto",
-        justifyContent: "center",
-        textAlign: "center",
+      display: "grid",
+      gridTemplateRows: "auto auto",
+      justifyContent: "center",
+      textAlign: "center",
     },
-    url: {
-        cursor: "pointer",
+    img: {
+      cursor: "pointer",
+      width: "150px",
     }
 }
 
