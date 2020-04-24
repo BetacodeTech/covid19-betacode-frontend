@@ -1,18 +1,12 @@
 import React from "react";
+import Icon from "react-fontawesome";
 
-const SocialIcon = ({image, url}) => {
-
+const SocialIcon = ({name, url}) => {
   return (
-    <a href={url}>
-      <img src={image}/>
+    <a href={url} style={{margin: "0 10px"}}>
+      <Icon name={name} className="social-icon" size="2x"/>
     </a>
   );
-}
-
-const styles = {
-  icon: {
-    cursor: "pointer",
-  }
-}
+};
 
 export default SocialIcon;

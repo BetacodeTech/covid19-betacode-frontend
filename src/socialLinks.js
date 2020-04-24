@@ -1,26 +1,26 @@
 export const socialLinks = [
   {
-    image: 'https://img.icons8.com/color/48/000000/facebook.png',
+    icon: 'fab fa-facebook-f',
     url: 'https://www.facebook.com/betacode.tech/',
   },
   {
-    image: 'https://img.icons8.com/material-outlined/48/000000/instagram-new.png',
+    icon: 'fab fa-instagram',
     url: 'https://www.instagram.com/betacode.tech/',
   },
   {
-    image: 'https://img.icons8.com/color/48/000000/linkedin.png',
+    icon: 'fab fa-linkedin',
     url: 'https://www.linkedin.com/company/betacodetech/',
   },
   {
-    image: 'https://img.icons8.com/ios-glyphs/48/000000/github.png',
-    url: 'https://github.com',
+    icon: 'fab fa-github',
+    url: 'https://github.com/BetacodeTech',
   },
   {
-    image: 'https://img.icons8.com/color/48/000000/youtube-play.png',
-    url: 'https://youtube.com',
+    icon: 'fab fa-youtube',
+    url: 'https://www.youtube.com/channel/UCBN-XFjqgeVUmTofOS5Ihrw/videos',
   },
   {
-    image: 'https://img.icons8.com/color/48/000000/twitch.png',
-    url: 'https://twitch.tv',
+    icon: 'fab fa-twitch',
+    url: 'https://www.twitch.tv/betacode_tech/',
   },
 ];
