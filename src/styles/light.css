@@ -28,7 +28,7 @@ body {
 }
 
 .portlet {
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, .125);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -110,14 +110,32 @@ body {
     padding: 20px;
 }
 
-.chart-tooltip table td.align-center{
+.chart-tooltip table td.align-center {
     text-align: center;
 }
-.chart-tooltip table td, .chart-tooltip table th{
+
+.chart-tooltip table td, .chart-tooltip table th {
     padding: 10px 20px;
     opacity: 1;
 }
 
-.border-bottom{
-    border-bottom: 1px solid rgba(0,0,0,.125);
+.border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.kpi .value {
+    font-size: 20px;
+}
+
+.kpi .title {
+    font-size: 15px;
+}
+
+.kpi .subtitle {
+    font-size: 13px;
+}
+
+.kpi {
+    padding: 10px 15px;
+    margin: 10px 0px 25px 0px;
 }
