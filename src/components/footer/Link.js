@@ -9,7 +9,7 @@ const Link = ({image, url, description}) => {
     return (
         <div style={styles.container}>
           <img src={image} style={styles.img} onClick={handleOnClick}/>
-          <p style={{marginTop: 0}} className="footer-text-primary">
+          <p className="footer-text-link color-secondary3">
             {description}
           </p>
         </div>
