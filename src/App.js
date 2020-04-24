@@ -18,6 +18,8 @@ import Portlet from "./components/Portlet";
 import Kpi from "./components/Kpi";
 import CountryData from "./components/CountryData";
 
+import Footer from "./components/footer/Footer";
+
 function App() {
     const dispatch = useDispatch();
 
@@ -131,6 +133,7 @@ function App() {
                     </Row>
                 )
             })}
+            <Footer/>
         </div>
     );
 }
