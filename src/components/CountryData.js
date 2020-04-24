@@ -67,7 +67,7 @@ const CountryData = ({country, day, confirmed, deaths, recovered, confirmed_per_
                     </Row>
                 </Col>
                 <Col>
-                    <Chart country_chart_data={country_chart_data}/>
+                    {country_chart_data && <Chart country_chart_data={country_chart_data}/>}
                 </Col>
             </Row>
         </Portlet>

@@ -50,11 +50,11 @@ function App() {
         dispatch(actions.getDeathsPerMillion(selectedCountries));
         dispatch(actions.getRecoveredPerMillion(selectedCountries));
 
-        dispatch(actions.getCountryChartData(selectedCountries));
-
         dispatch(actions.getConfirmed(selectedCountries));
         dispatch(actions.getDeaths(selectedCountries));
         dispatch(actions.getRecovered(selectedCountries));
+
+        dispatch(actions.getCountryChartData(selectedCountries));
     }, [selectedCountries]);
 
 
@@ -103,7 +103,6 @@ function App() {
                     </Col>
                 </Row>
                 {infectionData && Object.keys(infectionData).map((key, index) => {
-
                     const country_data = infectionData[key];
                     const country_data_entry = country_data[country_data.length - 1];
                     const confirmed = country_data_entry.confirmed;

@@ -88,7 +88,7 @@ export const actions = {
             })
         }
     },
-    getCountryChartData: (selectedCountries) => {
+    "getCountryChartData": (selectedCountries) => {
         return (dispatch) => {
             const countries = actions.getCountriesCommaSepareted(selectedCountries);
 
@@ -112,7 +112,7 @@ export const actions = {
             fetch(url).then((response) => {
                 if (response.ok) {
                     response.json().then(data => {
-                        //dispatch(actions.loadInfectionData(data));
+                        dispatch(actions.loadInfectionData(data));
                     });
                 }
             })
