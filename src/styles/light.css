@@ -28,6 +28,7 @@ body {
 }
 
 .portlet {
+    border: 1px solid rgba(0, 0, 0, .125);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -84,10 +85,59 @@ body {
     border-radius: 4px;
 }
 
-.portlet .portlet-subtitle{
+.portlet .portlet-subtitle {
     font-weight: 300;
     padding-left: .5rem;
     font-size: 1rem;
+}
+
+.card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.chart-tooltip table td.align-center {
+    text-align: center;
+}
+
+.chart-tooltip table td, .chart-tooltip table th {
+    padding: 10px 20px;
+    opacity: 1;
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.kpi .value {
+    font-size: 20px;
+}
+
+.kpi .title {
+    font-size: 15px;
+}
+
+.kpi .subtitle {
+    font-size: 13px;
+}
+
+.kpi {
+    padding: 10px 15px;
+    margin: 10px 0px 25px 0px;
 }
 
 .betacode-blue {
