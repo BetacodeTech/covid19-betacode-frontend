@@ -21,7 +21,7 @@ const Footer = () => {
         <Row>
           <Col xs={12} md={4}>
             <div className="color-secondary3">
-              <img className="covid-curves-logo" src="imageicons/CovidCurves_Export_HPreto.png"/>
+              <img className="covid-curves-logo" src="./imageicons/CovidCurves_Export_HPreto.png"/>
               <div>
                 {t('footer.description')}
               </div>
