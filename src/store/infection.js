@@ -112,7 +112,8 @@ export const actions = {
             fetch(url).then((response) => {
                 if (response.ok) {
                     response.json().then(data => {
-                        dispatch(actions.loadInfectionData(data));
+                        if(data)
+                            dispatch(actions.loadInfectionData(data));
                     });
                 }
             })
