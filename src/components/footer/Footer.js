@@ -21,21 +21,21 @@ const Footer = () => {
         <Row>
           <Col xs={12} md={4}>
             <div className="color-secondary3">
-              <img className="covid-curves-logo" src="./imageicons/CovidCurves_Export_HPreto.png"/>
+              <img className="covid-curves-logo" src="/images/CovidCurves_Export_HPreto.png"/>
               <div>
                 {t('footer.description')}
               </div>
             </div>
           </Col>
           <Col xs={12} md={4} className="footer-links-column">
-            <Link image="./imageIcons/betacode.png" url="https://betacode.tech" description="Created by"/>
-            <Link image="./imageIcons/i18ncloud.png" url="http://i18ncloud.com"
+            <Link image="/images/betacode.png" url="https://betacode.tech" description="Created by"/>
+            <Link image="/images/i18ncloud.png" url="http://i18ncloud.com"
                   description="Using this translation tool"/>
           </Col>
           <Col xs={12} md={4} className="footer-links-column">
-            <Link image="./imageIcons/github.png" url="https://github.com/BetacodeTech/covid19-betacode-frontend"
+            <Link image="/images/github.png" url="https://github.com/BetacodeTech/covid19-betacode-frontend"
                   description="Fork this frontend on github"/>
-            <Link image="./imageIcons/github.png" url="https://github.com/BetacodeTech/covid19-betacode-api"
+            <Link image="/images/github.png" url="https://github.com/BetacodeTech/covid19-betacode-api"
                   description="Fork this api on github"/>
           </Col>
         </Row>
