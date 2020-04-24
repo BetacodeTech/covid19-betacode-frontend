@@ -35,7 +35,7 @@ const Footer = () => {
               <Col>
                   <div className="footer-social-icons-list">
                     {socialLinks.map((item,index) =>
-                      <SocialIcon key={index} name={item.icon} url={item.url}/>
+                      <SocialIcon key={index} icon={item.icon} url={item.url}/>
                     )}
                   </div>
               </Col>

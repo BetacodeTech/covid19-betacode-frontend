@@ -1,10 +1,10 @@
 import React from "react";
-import Icon from "react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SocialIcon = ({name, url}) => {
+const SocialIcon = ({icon, url}) => {
   return (
     <a href={url} style={{margin: "0 10px"}}>
-      <Icon name={name} className="social-icon" size="2x"/>
+      <FontAwesomeIcon icon={icon} className="social-icon" size="2x"/>
     </a>
   );
 };
