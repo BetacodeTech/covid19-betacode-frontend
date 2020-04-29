@@ -68,36 +68,36 @@ function App() {
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.confirmed')} subtitle={t('subtitle.confirmed')}>
+                        <Portlet title={t('title.confirmed')}>
                             <Chart infectionData={confirmed} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.casespermillion')} subtitle={t('subtitle.casespermillion')}>
+                        <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')}>
                             <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.deaths')} subtitle={t('subtitle.deaths')}>
+                        <Portlet title={t('title.deaths')}>
                             <Chart infectionData={deaths} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.deathspermillion')} subtitle={t('subtitle.deathspermillion')}>
+                        <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')}>
                             <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.recovered')} subtitle={t('subtitle.recovered')}>
+                        <Portlet title={t('title.recovered')}>
                             <Chart infectionData={recovered} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.recoveredpermillion')} subtitle={t('subtitle.recoveredpermillion')}>
+                        <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')}>
                             <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>

@@ -8,7 +8,7 @@ const Link = ({image, url, description}) => {
 
     return (
         <div style={styles.container}>
-          <img src={image} style={styles.img} onClick={handleOnClick}/>
+          <img src={image} style={styles.img} onClick={handleOnClick} alt=""/>
           <p className="footer-text-link color-secondary3">
             {description}
           </p>
