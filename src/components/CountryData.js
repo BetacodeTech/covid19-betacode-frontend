@@ -1,11 +1,12 @@
 import React from "react";
-import Kpi from "./Kpi";
-import Portlet from "./Portlet";
 import {Col, Row} from "react-bootstrap";
 import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import {useTranslation} from "react-i18next";
+
+import Kpi from "./Kpi";
+import Portlet from "./Portlet";
 
 const Chart = ({country_chart_data}) => {
-
     return (
         <div style={styles.chartContainer}>
             <ResponsiveContainer>
@@ -36,32 +37,35 @@ const styles = {
 };
 
 const CountryData = ({country, day, confirmed, deaths, recovered, confirmed_per_million, deaths_per_million, recovered_per_million, country_chart_data}) => {
+
+    const {t} = useTranslation();
+
     return (
         <Portlet title={country} subtitle={"- " + day}>
             <Row>
                 <Col>
                     <Row>
                         <Col>
-                            <Kpi title="Nº Confirmados" subtitle="Dados absolutos" value={confirmed} color="#DF7242"/>
+                            <Kpi title={t('kpi.confirmed')} subtitle={t('kpi.absolutenumber')} value={confirmed} color="#DF7242"/>
                         </Col>
                         <Col>
-                            <Kpi title="Nº Mortes" subtitle="Dados absolutos" value={deaths} color="#D0568C"/>
+                            <Kpi title={t('kpi.deaths')} subtitle={t('kpi.absolutenumber')} value={deaths} color="#D0568C"/>
                         </Col>
                         <Col>
-                            <Kpi title="Nº Recuperados" subtitle="Dados absolutos" value={recovered} color="#23c42b"/>
+                            <Kpi title={t('kpi.recovered')} subtitle={t('kpi.absolutenumber')} value={recovered} color="#23c42b"/>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <Kpi title="Nº Confirmados" subtitle="Milhões de habitantes" value={confirmed_per_million}
+                            <Kpi title={t('kpi.confirmed')} subtitle={t('kpi.permillioninhabitant')} value={confirmed_per_million}
                                  color="#DF7242"/>
                         </Col>
                         <Col>
-                            <Kpi title="Nº Mortes" subtitle="Milhões de habitantes" value={deaths_per_million}
+                            <Kpi title={t('kpi.deaths')} subtitle={t('kpi.permillioninhabitant')} value={deaths_per_million}
                                  color="#D0568C"/>
                         </Col>
                         <Col>
-                            <Kpi title="Nº Recuperados" subtitle="Milhões de habitantes" value={recovered_per_million}
+                            <Kpi title={t('kpi.recovered')} subtitle={t('kpi.permillioninhabitant')} value={recovered_per_million}
                                  color="#23c42b"/>
                         </Col>
                     </Row>
