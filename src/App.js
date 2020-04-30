@@ -15,9 +15,9 @@ import Info from "./components/Info";
 
 import "./styles/light.css"
 import Portlet from "./components/Portlet";
-import Kpi from "./components/Kpi";
 import CountryData from "./components/CountryData";
 
+import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 function App() {
@@ -60,6 +60,7 @@ function App() {
 
     return (
         <>
+            <Header/>
             <div className="App" style={{margin: 20}}>
                 <Row>
                     <Col>

@@ -226,3 +226,33 @@ body {
     margin-bottom: -40px;
     margin-top: -60px;
 }
+
+.header-background-color {
+    padding: 5px 16px;
+    background-color: #181818;
+}
+
+.flags .flag-select {
+    padding-bottom: 0;
+}
+
+.flags .flag-select__btn{
+    outline: 0;
+    color: rgba(255, 255, 255, 1);
+}
+
+.flags .country-label {
+    color: rgba(255, 255, 255, 1);
+}
+
+.flags .arrow-down {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.flags .flag-select__option__icon {
+    top: 0;
+}
+
+.flag .flag-select__option {
+    padding-bottom: 0;
+}
