@@ -57,10 +57,14 @@ function App() {
         dispatch(actions.getCountryChartData(selectedCountries));
     }, [selectedCountries]);
 
+    const changeLanguage = (countryCode) => {
+        i18n.changeLanguage(countryCode);
+        console.log(countryCode);
+    }
 
     return (
         <>
-            <Header/>
+            <Header changeLanguage={changeLanguage}/>
             <div className="App" style={{margin: 20}}>
                 <Row>
                     <Col>

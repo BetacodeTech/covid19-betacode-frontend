@@ -5,12 +5,11 @@ import 'react-flags-select/css/react-flags-select.css';
 
 import {countries, countryLabels} from "../../i18n/languages";
 
-const Header = () => {
+const Header = ({changeLanguage}) => {
 
-  const [language, setLanguage] = React.useState("PT");
-
-  const handleChangeLanguage = (event) => {
-    setLanguage(event.target.text);
+  const handleChangeLanguage = (countryCode) => {
+    countryCode = countryCode === "GB" ? "EN" : countryCode;
+    changeLanguage(countryCode);
   };
 
   return (
@@ -25,9 +24,13 @@ const Header = () => {
       </Navbar.Brand>
       <div className="flags">
         <ReactFlagsSelect
+          defaultCountry={countries[0]}
           countries={countries}
           customLabels={countryLabels}
           placeholder="Select Language"
+          showSelectedLabel={false}
+          showOptionLabel={false}
+          onSelect={handleChangeLanguage}
         />
       </div>
     </Navbar>
