@@ -38,7 +38,7 @@ const Portlet = ({title, subtitle, info, children, showInfo}) => {
              centered size="lg">
         <Modal.Header closeButton>
           {!subtitle && <Modal.Title>{title}</Modal.Title>}
-          {subtitle && <Modal.Title>{title}<small>{subtitle}</small></Modal.Title>}
+          {subtitle && <Modal.Title>{`${title} `}<small>{subtitle}</small></Modal.Title>}
         </Modal.Header>
         <Modal.Body>{info}</Modal.Body>
         <Modal.Footer>
