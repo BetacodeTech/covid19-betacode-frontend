@@ -73,36 +73,36 @@ function App() {
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.confirmed')} info={t("modal.confirmed.info")} showInfo={true}>
+                        <Portlet title={t('title.confirmed')} info={t("modal.confirmed.info")}>
                             <Chart infectionData={confirmed} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.confirmedpermillion.info")} showInfo={true}>
+                        <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.confirmedpermillion.info")}>
                             <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.deaths')} info={t("modal.deaths.info")} showInfo={true}>
+                        <Portlet title={t('title.deaths')} info={t("modal.deaths.info")}>
                             <Chart infectionData={deaths} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.deathspermillion.info")} showInfo={true}>
+                        <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.deathspermillion.info")}>
                             <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.recovered')} info={t("modal.recovered.info")} showInfo={true}>
+                        <Portlet title={t('title.recovered')} info={t("modal.recovered.info")}>
                             <Chart infectionData={recovered} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.recoveredpermillion.info")} showInfo={true}>
+                        <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.recoveredpermillion.info")}>
                             <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>

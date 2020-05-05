@@ -1,16 +1,18 @@
 import React, {useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
-import {Modal, Button} from "react-bootstrap";
-import {useTranslation} from "react-i18next";
+import {useSelector, useDispatch} from "react-redux";
 
-const Portlet = ({title, subtitle, info, children, showInfo}) => {
-  const {t, i18n} = useTranslation();
+import ChartInfoModal from "./modal/ChartInfoModal";
+
+const Portlet = ({title, subtitle, info, children}) => {
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const childRef = React.useRef();
 
   return (
     <>
@@ -24,8 +26,8 @@ const Portlet = ({title, subtitle, info, children, showInfo}) => {
             </h2>
           </div>
           }
-          {showInfo &&
-            <div className="portlet-icon" onClick={handleShow}>
+          {info &&
+            <div className="portlet-icon" onClick={() => childRef.current.handleOpen()}>
               <FontAwesomeIcon icon={faInfoCircle}/>
             </div>
           }
@@ -34,19 +36,7 @@ const Portlet = ({title, subtitle, info, children, showInfo}) => {
           {children}
         </div>
       </div>
-      <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter"
-             centered size="lg">
-        <Modal.Header closeButton>
-          {!subtitle && <Modal.Title>{title}</Modal.Title>}
-          {subtitle && <Modal.Title>{`${title} `}<small>{subtitle}</small></Modal.Title>}
-        </Modal.Header>
-        <Modal.Body>{info}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            {t("modal.close.button")}
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ChartInfoModal title={title} subtitle={subtitle} text={info} ref={childRef}/>
     </>
   )
 };
