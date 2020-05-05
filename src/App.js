@@ -5,6 +5,7 @@ import Chart from "./components/Chart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Container, Row} from "react-bootstrap";
 import {actions} from "./store/infection";
+import {actions as modeActions} from "./store/mode";
 import {useDispatch, useSelector} from "react-redux";
 import CountryPicker from "./components/CountryPicker";
 
@@ -39,6 +40,8 @@ function App() {
 
     const selectedCountries = useSelector(state => state.infection.selectedCountries);
 
+    const mode = useSelector(state => state.mode.mode);
+
     useEffect(() => {
         dispatch(actions.getListOfCountries())
     }, []);
@@ -57,10 +60,18 @@ function App() {
         dispatch(actions.getCountryChartData(selectedCountries));
     }, [selectedCountries]);
 
+    const handleClick = () => {
+        dispatch(modeActions.setMode("dark"));
+        console.log(mode);
+    }
+
 
     return (
         <>
             <div className="App" style={{margin: 20}}>
+                <Row>
+                    <button onClick={handleClick}>Change</button>
+                </Row>
                 <Row>
                     <Col>
                         <CountryPicker/>
