@@ -107,6 +107,10 @@ body {
     font-size: 1rem;
 }
 
+.portlet-icon {
+    cursor: pointer;
+}
+
 .card {
     display: -webkit-box;
     display: -ms-flexbox;
