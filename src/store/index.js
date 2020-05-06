@@ -2,9 +2,8 @@ import { createStore, applyMiddleware } from "redux"
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
 import infection from "./infection";
-import chartInfo from "./chartInfoModal"
 
-const reducers = combineReducers({infection, chartInfo});
+const reducers = combineReducers({infection});
 const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;
