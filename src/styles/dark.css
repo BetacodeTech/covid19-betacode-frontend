@@ -1,29 +1,28 @@
-body {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.85);
+.dark.container-background {
+    background-color: #303030;
 }
 
-.dark. card-container {
+.dark .card-container {
     background-color: #fff;
 }
 
-.dark. color-primary1 {
+.dark .color-primary1 {
     color: rgba(0, 0, 0, 0.85);
 }
 
-.dark. color-primary2 {
+.dark .color-primary2 {
     color: rgba(0, 0, 0, 0.75);
 }
 
-.dark. color-primary3 {
-    color: rgba(0, 0, 0, 0.60);
+.dark .color-primary3 {
+    color: rgba(255, 255, 255, 0.60);
 }
 
-.dark. color-primary4 {
-    color: rgba(0, 0, 0, 0.45);
+.dark .color-primary4 {
+    color: rgba(255, 255, 255, 0.45);
 }
 
-.dark. color-secondary1 {
+.dark .color-secondary1 {
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -39,44 +38,48 @@ body {
     color: rgba(255, 255, 255, 0.60);
 }
 
-.dark. color-secondary4 {
+.dark .color-secondary4 {
     color: rgba(255, 255, 255, 0.45);
 }
 
 .dark .portlet {
-    border: 1px solid rgba(0, 0, 0, .125);
+    border: 1px solid rgba(255, 255, 255, .125);
     -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
-    background-color: #fff;
+    background-color: #262326;
 }
 
-.dark. portlet .portlet-head {
+.dark .portlet .portlet-head {
     border-bottom: 1px solid #ebedf2;
 }
 
-.dark. portlet .portlet-head .portlet-title {
-    color: #48465b;
-}
-
-.dark. card {
-    -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
-    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
-    background-color: #fff;
-}
-
-.dark. border-bottom {
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
-}
-
-.dark. social-icon {
+.dark .portlet .portlet-title {
     color: rgba(255, 255, 255, 1);
 }
 
-.dark. footer-text-primary {
+.dark .portlet .portlet-subtitle {
+    color: rgba(255, 255, 255, 1);
+}
+
+.dark .card {
+    -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    background-color: #262326;
+}
+
+.dark .border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.dark .social-icon {
+    color: rgba(255, 255, 255, 1);
+}
+
+.dark .footer-text-primary {
     color: rgba(208, 208, 208, 1);
 }
 
-.dark. footer-text-secondary {
+.dark .footer-text-secondary {
     color: rgba(255, 255, 255, 1);
 }
 
@@ -94,4 +97,8 @@ body {
 
 .dark.footer-part3 a {
     color: #FFCB75;
+}
+
+.dark.header-background-color {
+    background-color: #181818;
 }

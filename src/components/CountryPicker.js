@@ -60,6 +60,7 @@ const colourStyles = {
 const CountryPicker = () => {
     const listOfCountries = useSelector(state => state.infection.listOfCountries);
     const selectedCountries = useSelector(state => state.infection.selectedCountries);
+    const mode = useSelector(state => state.mode.mode);
 
     const dispatch = useDispatch();
     return (
@@ -71,7 +72,6 @@ const CountryPicker = () => {
                 onChange={(selectedCountries) => {
                     dispatch(actions.setSelectCountries(selectedCountries))
                 }}
-
                 styles={colourStyles}
                 components={animatedComponents}
                 isMulti/>

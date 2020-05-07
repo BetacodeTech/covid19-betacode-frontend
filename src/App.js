@@ -19,9 +19,9 @@ import "./styles/globalStyles.css"
 import "./styles/dark.css"
 
 import Portlet from "./components/Portlet";
-import Kpi from "./components/Kpi";
 import CountryData from "./components/CountryData";
 
+import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 function App() {
@@ -67,10 +67,15 @@ function App() {
         dispatch(modeActions.setMode(mode === "light" ? "dark" : "light"));
     }
 
+    const changeLanguage = (countryCode) => {
+        i18n.changeLanguage(countryCode);
+        console.log(countryCode);
+    }
 
     return (
-        <>
-            <div className={mode} style={{margin: 20}}>
+        <div className={`${mode} container-background`}>
+            <Header changeLanguage={changeLanguage}/>
+            <div style={{margin: 20}}>
                 <Row>
                     <button onClick={handleClick}>Change</button>
                 </Row>
@@ -81,36 +86,36 @@ function App() {
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.confirmed')}>
+                        <Portlet title={t('title.confirmed')} info={t("modal.confirmed.info")}>
                             <Chart infectionData={confirmed} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')}>
+                        <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.confirmedpermillion.info")}>
                             <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.deaths')}>
+                        <Portlet title={t('title.deaths')} info={t("modal.deaths.info")}>
                             <Chart infectionData={deaths} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')}>
+                        <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.deathspermillion.info")}>
                             <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Portlet title={t('title.recovered')}>
+                        <Portlet title={t('title.recovered')} info={t("modal.recovered.info")}>
                             <Chart infectionData={recovered} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
                     <Col>
-                        <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')}>
+                        <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.recoveredpermillion.info")}>
                             <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries}/>
                         </Portlet>
                     </Col>
@@ -148,7 +153,7 @@ function App() {
                 })}
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 

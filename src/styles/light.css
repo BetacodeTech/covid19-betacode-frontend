@@ -1,33 +1,32 @@
-body {
-    /*background-color: rgba(0, 0, 0, 0.05);*/
-    color: rgba(0, 0, 0, 0.85);
-}
-
-.light. card-container {
+.ligh.container-background {
     background-color: #fff;
 }
 
-.light. color-primary1 {
+.light .card-container {
+    background-color: #fff;
+}
+
+.light .color-primary1 {
     color: rgba(0, 0, 0, 0.85);
 }
 
-.light. color-primary2 {
+.light .color-primary2 {
     color: rgba(0, 0, 0, 0.75);
 }
 
-.light. color-primary3 {
+.light .color-primary3 {
     color: rgba(0, 0, 0, 0.60);
 }
 
-.light. color-primary4 {
+.light .color-primary4 {
     color: rgba(0, 0, 0, 0.45);
 }
 
-.light. color-secondary1 {
+.light .color-secondary1 {
     color: rgba(255, 255, 255, 0.85);
 }
 
-.light. color-secondary2 {
+.light .color-secondary2 {
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -39,7 +38,7 @@ body {
     color: rgba(255, 255, 255, 0.60);
 }
 
-.light. color-secondary4 {
+.light .color-secondary4 {
     color: rgba(255, 255, 255, 0.45);
 }
 
@@ -50,33 +49,33 @@ body {
     background-color: #fff;
 }
 
-.light. portlet .portlet-head {
+.light .portlet .portlet-head {
     border-bottom: 1px solid #ebedf2;
 }
 
-.light. portlet .portlet-head .portlet-title {
+.light .portlet .portlet-head .portlet-title {
     color: #48465b;
 }
 
-.light. card {
+.light .card {
     -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     background-color: #fff;
 }
 
-.light. border-bottom {
+.light .border-bottom {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
 }
 
-.light. social-icon {
+.light .social-icon {
     color: rgba(255, 255, 255, 1);
 }
 
-.light. footer-text-primary {
+.light .footer-text-primary {
     color: rgba(208, 208, 208, 1);
 }
 
-.light. footer-text-secondary {
+.light .footer-text-secondary {
     color: rgba(255, 255, 255, 1);
 }
 
@@ -94,4 +93,8 @@ body {
 
 .light.footer-part3 a {
     color: #FFCB75;
+}
+
+.light.header-background-color {
+    background-color: #181818;
 }
