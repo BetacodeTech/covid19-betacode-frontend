@@ -22,17 +22,17 @@ const Header = ({changeLanguage}) => {
           className="d-inline-block align-top"
         />
       </Navbar.Brand>
-      <div className="flags">
-        <ReactFlagsSelect
-          defaultCountry={countries[0]}
-          countries={countries}
-          customLabels={countryLabels}
-          placeholder="Select Language"
-          showSelectedLabel={false}
-          showOptionLabel={false}
-          onSelect={handleChangeLanguage}
-        />
-      </div>
+      {/*<div className="flags">*/}
+      {/*  <ReactFlagsSelect*/}
+      {/*    defaultCountry={countries[0]}*/}
+      {/*    countries={countries}*/}
+      {/*    customLabels={countryLabels}*/}
+      {/*    placeholder="Select Language"*/}
+      {/*    showSelectedLabel={false}*/}
+      {/*    showOptionLabel={false}*/}
+      {/*    onSelect={handleChangeLanguage}*/}
+      {/*  />*/}
+      {/*</div>*/}
     </Navbar>
   );
 }
