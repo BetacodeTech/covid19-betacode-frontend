@@ -7,17 +7,20 @@ import Link from "./Link";
 import SocialIcon from "./SocialIcon";
 import {socialLinks} from "../../socialLinks";
 import NODE_PACKAGE from "../../../package.json";
+import {useSelector} from "react-redux";
 
 const VERSION = NODE_PACKAGE.version;
 
 const Footer = () => {
+
+  const mode = useSelector(state => state.mode.mode);
 
   const {t} = useTranslation();
 
 
   return (
     <>
-      <div className="footer-part1 footer-background-color1">
+      <div className={`footer-part1 footer-background-color1 ${mode}`}>
         <Row>
           <Col xs={12} md={4}>
             <div className="color-secondary3">
@@ -40,14 +43,14 @@ const Footer = () => {
           </Col>
         </Row>
       </div>
-      <div className="footer-part2 footer-background-color2">
+      <div className={`footer-part2 footer-background-color2 ${mode}`}>
         <div className="footer-social-icons-list">
           {socialLinks.map((item, index) =>
             <SocialIcon key={index} icon={item.icon} url={item.url}/>
           )}
         </div>
       </div>
-      <div className="footer-part3 footer-background-color2 color-secondary3">
+      <div className={`footer-part3 footer-background-color2 color-secondary3 ${mode}`}>
         <span>{t('footer.copyright')} <a href="www.betacode.tech">Betacode</a> {t('footer.copyright.brand')}{VERSION} </span>
       </div>
     </>

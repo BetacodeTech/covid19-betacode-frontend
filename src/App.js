@@ -15,6 +15,9 @@ import "./i18n";
 import Info from "./components/Info";
 
 import "./styles/light.css"
+import "./styles/globalStyles.css"
+import "./styles/dark.css"
+
 import Portlet from "./components/Portlet";
 import Kpi from "./components/Kpi";
 import CountryData from "./components/CountryData";
@@ -61,14 +64,13 @@ function App() {
     }, [selectedCountries]);
 
     const handleClick = () => {
-        dispatch(modeActions.setMode("dark"));
-        console.log(mode);
+        dispatch(modeActions.setMode(mode === "light" ? "dark" : "light"));
     }
 
 
     return (
         <>
-            <div className="App" style={{margin: 20}}>
+            <div className={mode} style={{margin: 20}}>
                 <Row>
                     <button onClick={handleClick}>Change</button>
                 </Row>

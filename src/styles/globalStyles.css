@@ -1,0 +1,151 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-container {
+    margin: 10px 0px;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.portlet {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.portlet .portlet-head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 25px;
+    min-height: 60px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: flex-first;
+    align-content: flex-first;
+}
+
+.portlet .portlet-head .portlet-title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.portlet .portlet-body {
+    padding: 25px;
+    border-radius: 4px;
+}
+
+.portlet .portlet-subtitle {
+    font-weight: 300;
+    padding-left: .5rem;
+    font-size: 1rem;
+}
+
+.card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.chart-tooltip table td.align-center {
+    text-align: center;
+}
+
+.chart-tooltip table td, .chart-tooltip table th {
+    padding: 10px 20px;
+    opacity: 1;
+}
+
+.kpi .value {
+    font-size: 20px;
+}
+
+.kpi .title {
+    font-size: 15px;
+}
+
+.kpi .subtitle {
+    font-size: 13px;
+}
+
+.kpi {
+    padding: 10px 15px;
+    margin: 10px 0px 25px 0px;
+}
+
+.footer-social-icons-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-links-column {
+    display: grid;
+    grid-row-gap: 20px;
+    margin: 10px auto;
+}
+
+.footer-part1 {
+    position: relative;
+    bottom: 0;
+    padding: 30px;
+}
+
+.footer-part2 {
+    padding: 30px 0px 30px 0px;
+}
+
+.footer-part3 {
+    text-align: center;
+    padding: 30px 0px 30px 0px;
+    flex: auto;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.footer-text-link {
+    margin-top: 9px;
+    font-size: 13px;
+}
+
+.footer-part1 .covid-curves-logo{
+    width: 300px;
+    margin-bottom: -40px;
+    margin-top: -60px;
+}

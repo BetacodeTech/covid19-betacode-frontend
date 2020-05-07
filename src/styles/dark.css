@@ -1,97 +1,97 @@
 body {
-    /*background-color: rgba(0, 0, 0, 0.05);*/
+    background-color: rgba(0, 0, 0, 0.05);
     color: rgba(0, 0, 0, 0.85);
 }
 
-.light. card-container {
+.dark. card-container {
     background-color: #fff;
 }
 
-.light. color-primary1 {
+.dark. color-primary1 {
     color: rgba(0, 0, 0, 0.85);
 }
 
-.light. color-primary2 {
+.dark. color-primary2 {
     color: rgba(0, 0, 0, 0.75);
 }
 
-.light. color-primary3 {
+.dark. color-primary3 {
     color: rgba(0, 0, 0, 0.60);
 }
 
-.light. color-primary4 {
+.dark. color-primary4 {
     color: rgba(0, 0, 0, 0.45);
 }
 
-.light. color-secondary1 {
+.dark. color-secondary1 {
     color: rgba(255, 255, 255, 0.85);
 }
 
-.light. color-secondary2 {
+.dark. color-secondary2 {
     color: rgba(255, 255, 255, 0.75);
 }
 
-.light .color-secondary3 {
+.dark .color-secondary3 {
     color: rgba(255, 255, 255, 0.60);
 }
 
-.light.color-secondary3 {
+.dark.color-secondary3 {
     color: rgba(255, 255, 255, 0.60);
 }
 
-.light. color-secondary4 {
+.dark. color-secondary4 {
     color: rgba(255, 255, 255, 0.45);
 }
 
-.light .portlet {
+.dark .portlet {
     border: 1px solid rgba(0, 0, 0, .125);
     -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     background-color: #fff;
 }
 
-.light. portlet .portlet-head {
+.dark. portlet .portlet-head {
     border-bottom: 1px solid #ebedf2;
 }
 
-.light. portlet .portlet-head .portlet-title {
+.dark. portlet .portlet-head .portlet-title {
     color: #48465b;
 }
 
-.light. card {
+.dark. card {
     -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     background-color: #fff;
 }
 
-.light. border-bottom {
+.dark. border-bottom {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
 }
 
-.light. social-icon {
+.dark. social-icon {
     color: rgba(255, 255, 255, 1);
 }
 
-.light. footer-text-primary {
+.dark. footer-text-primary {
     color: rgba(208, 208, 208, 1);
 }
 
-.light. footer-text-secondary {
+.dark. footer-text-secondary {
     color: rgba(255, 255, 255, 1);
 }
 
-.light.footer-background-color2 {
+.dark.footer-background-color2 {
     background-color: #181818;
 }
 
-.light.footer-background-color1 {
+.dark.footer-background-color1 {
     background-color: #262326;
 }
 
-.light.footer-part2 {
+.dark.footer-part2 {
     border-bottom: 2px solid rgba(169, 169, 169, 0.6);
 }
 
-.light.footer-part3 a {
+.dark.footer-part3 a {
     color: #FFCB75;
 }
