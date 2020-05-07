@@ -61,6 +61,10 @@
     color: rgba(255, 255, 255, 1);
 }
 
+.dark .portlet .portlet-icon {
+    color: #fff;
+}
+
 .dark .card {
     -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);

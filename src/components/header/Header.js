@@ -2,17 +2,26 @@ import React from "react";
 import {Navbar} from "react-bootstrap";
 import ReactFlagsSelect from "react-flags-select";
 import 'react-flags-select/css/react-flags-select.css';
+import Switch from "react-switch";
+import {faMoon} from "@fortawesome/free-solid-svg-icons";
 
 import {countries, countryLabels} from "../../i18n/languages";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {actions} from "../../store/mode";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Header = ({changeLanguage}) => {
+  const dispatch = useDispatch();
 
   const mode = useSelector(state => state.mode.mode);
 
   const handleChangeLanguage = (countryCode) => {
     countryCode = countryCode === "GB" ? "EN" : countryCode;
     changeLanguage(countryCode);
+  };
+
+  const handleChangeMode = () => {
+    dispatch(actions.setMode(mode === "light" ? "dark" : "light"));
   };
 
   return (
@@ -37,10 +46,33 @@ const Header = ({changeLanguage}) => {
       {/*  />*/}
       {/*</div>*/}
       <div>
-        <label className="switch">
-          <input type="checkbox" checked/>
-            <span className="slider round"></span>
-        </label>
+        <Switch
+          onChange={handleChangeMode}
+          checked={mode === "dark"}
+          height={25}
+          width={50}
+          onColor="#888888"
+          uncheckedIcon={
+            <div
+              style={{
+                paddingLeft: "5px",
+                color: "#fff"
+              }}
+            >
+              <FontAwesomeIcon icon={faMoon}/>
+            </div>
+          }
+          checkedIcon={
+            <div
+              style={{
+                paddingLeft: "5px",
+                color: "#181818",
+              }}
+            >
+              <FontAwesomeIcon icon={faMoon}/>
+            </div>
+          }
+        />
       </div>
     </Navbar>
   );

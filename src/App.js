@@ -77,9 +77,6 @@ function App() {
             <Header changeLanguage={changeLanguage}/>
             <div style={{margin: 20}}>
                 <Row>
-                    <button onClick={handleClick}>Change</button>
-                </Row>
-                <Row>
                     <Col>
                         <CountryPicker/>
                     </Col>

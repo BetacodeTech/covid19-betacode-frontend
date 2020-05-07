@@ -1,4 +1,4 @@
-.ligh.container-background {
+.light.container-background {
     background-color: #fff;
 }
 
@@ -55,6 +55,10 @@
 
 .light .portlet .portlet-head .portlet-title {
     color: #48465b;
+}
+
+.dark .portlet .portlet-icon {
+    color: #181818;
 }
 
 .light .card {
