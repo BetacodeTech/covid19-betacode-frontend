@@ -28,9 +28,9 @@ const Chart = ({country_chart_data}) => {
                           }}
                         />
                         <CartesianGrid stroke="#f5f5f5"/>
-                        <Line type="monotone" dataKey="confirmed" stroke="#DF7242"/>)
-                        <Line type="monotone" dataKey="deaths" stroke="#D0568C"/>)
-                        <Line type="monotone" dataKey="recovered" stroke="#23c42b"/>)
+                        <Line type="monotone" dataKey="confirmed" stroke="#DF7242" dot={{fill: "#DF7242", stroke: 'none'}}/>)
+                        <Line type="monotone" dataKey="deaths" stroke="#D0568C" dot={{fill: "#D0568C", stroke: 'none'}}/>)
+                        <Line type="monotone" dataKey="recovered" stroke="#23c42b" dot={{fill: "#23c42b", stroke: 'none'}}/>)
                     </LineChart>
                 }
             </ResponsiveContainer>

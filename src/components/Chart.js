@@ -95,7 +95,7 @@ const Chart = ({infectionData, selectedCountries, title}) => {
                     <Tooltip content={<CustomTooltip/>}/>
                     <CartesianGrid stroke="#f5f5f5"/>
                     {selectedCountries && selectedCountries.map(
-                        (country) => <Line type="monotone" dataKey={country.value} stroke={country.color}/>)
+                        (country) => <Line type="monotone" dataKey={country.value} stroke={country.color} dot={{fill: country.color, stroke: 'none'}}/>)
                     }
                 </LineChart>
             </ResponsiveContainer>
