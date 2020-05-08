@@ -2,11 +2,15 @@ import React from "react";
 import {Col, Row} from "react-bootstrap";
 import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 import {useTranslation} from "react-i18next";
+import {useSelector} from "react-redux";
 
 import Kpi from "./Kpi";
 import Portlet from "./Portlet";
 
 const Chart = ({country_chart_data}) => {
+
+    const mode = useSelector(state => state.mode.mode);
+
     return (
         <div style={styles.chartContainer}>
             <ResponsiveContainer>
@@ -17,7 +21,12 @@ const Chart = ({country_chart_data}) => {
                     >
                         <YAxis type="number"/>
                         <XAxis dataKey="date"/>
-                        <Tooltip/>
+                        <Tooltip
+                          contentStyle={{
+                              backgroundColor: mode === "dark" ? "#262326" : "#fff",
+                              color: mode === "dark" ? "#fff" : "rgba(0, 0, 0, 0.85)"
+                          }}
+                        />
                         <CartesianGrid stroke="#f5f5f5"/>
                         <Line type="monotone" dataKey="confirmed" stroke="#DF7242"/>)
                         <Line type="monotone" dataKey="deaths" stroke="#D0568C"/>)
