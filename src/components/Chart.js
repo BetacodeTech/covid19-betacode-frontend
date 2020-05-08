@@ -83,6 +83,8 @@ const CustomTooltip = ({active, payload, label}) => {
 
 const Chart = ({infectionData, selectedCountries, title}) => {
 
+    const mode = useSelector(state => state.mode.mode);
+
     return (
         <div style={styles.chartContainer}>
             <ResponsiveContainer>
@@ -93,7 +95,7 @@ const Chart = ({infectionData, selectedCountries, title}) => {
                     <YAxis type="number"/>
                     <XAxis dataKey="day"/>
                     <Tooltip content={<CustomTooltip/>}/>
-                    <CartesianGrid stroke="#f5f5f5"/>
+                    <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
                     {selectedCountries && selectedCountries.map(
                         (country) => <Line type="monotone" dataKey={country.value} stroke={country.color} dot={{fill: country.color, stroke: 'none'}}/>)
                     }

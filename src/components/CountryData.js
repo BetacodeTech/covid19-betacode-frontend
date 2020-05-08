@@ -27,7 +27,7 @@ const Chart = ({country_chart_data}) => {
                               color: mode === "dark" ? "#fff" : "rgba(0, 0, 0, 0.85)"
                           }}
                         />
-                        <CartesianGrid stroke="#f5f5f5"/>
+                        <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
                         <Line type="monotone" dataKey="confirmed" stroke="#DF7242" dot={{fill: "#DF7242", stroke: 'none'}}/>)
                         <Line type="monotone" dataKey="deaths" stroke="#D0568C" dot={{fill: "#D0568C", stroke: 'none'}}/>)
                         <Line type="monotone" dataKey="recovered" stroke="#23c42b" dot={{fill: "#23c42b", stroke: 'none'}}/>)
