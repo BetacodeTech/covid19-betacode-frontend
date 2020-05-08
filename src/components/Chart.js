@@ -92,8 +92,8 @@ const Chart = ({infectionData, selectedCountries, title}) => {
                     data={infectionData.data}
                     margin={{top: 5, right: 20, left: 10, bottom: 5}}
                 >
-                    <YAxis type="number"/>
-                    <XAxis dataKey="day"/>
+                    <YAxis type="number" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
+                    <XAxis dataKey="day" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
                     <Tooltip content={<CustomTooltip/>}/>
                     <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
                     {selectedCountries && selectedCountries.map(

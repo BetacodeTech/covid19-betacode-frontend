@@ -19,8 +19,8 @@ const Chart = ({country_chart_data}) => {
                         data={country_chart_data.data}
                         margin={{top: 5, right: 20, left: 10, bottom: 5}}
                     >
-                        <YAxis type="number"/>
-                        <XAxis dataKey="date"/>
+                        <YAxis type="number" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
+                        <XAxis dataKey="date" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
                         <Tooltip
                           contentStyle={{
                               backgroundColor: mode === "dark" ? "#262326" : "#fff",
