@@ -4,11 +4,11 @@ import ReactFlagsSelect from "react-flags-select";
 import 'react-flags-select/css/react-flags-select.css';
 import Switch from "react-switch";
 import {faMoon} from "@fortawesome/free-solid-svg-icons";
+import {useDispatch, useSelector} from "react-redux";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {countries, countryLabels} from "../../i18n/languages";
-import {useDispatch, useSelector} from "react-redux";
 import {actions} from "../../store/mode";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Header = ({changeLanguage}) => {
   const dispatch = useDispatch();

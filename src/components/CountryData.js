@@ -52,34 +52,32 @@ const CountryData = ({country, day, confirmed, deaths, recovered, confirmed_per_
     return (
         <Portlet title={country} subtitle={"- " + day}>
             <Row>
-                <Col>
+                <Col xs={12} lg={6}>
                     <Row>
-                        <Col>
+                        <Col xs={12} md={6} lg={4}>
                             <Kpi title={t('kpi.confirmed')} subtitle={t('kpi.absolutenumber')} value={confirmed} color="#DF7242"/>
                         </Col>
-                        <Col>
+                        <Col xs={12} md={6} lg={4}>
                             <Kpi title={t('kpi.deaths')} subtitle={t('kpi.absolutenumber')} value={deaths} color="#D0568C"/>
                         </Col>
-                        <Col>
+                        <Col xs={12} md={6} lg={4}>
                             <Kpi title={t('kpi.recovered')} subtitle={t('kpi.absolutenumber')} value={recovered} color="#23c42b"/>
                         </Col>
-                    </Row>
-                    <Row>
-                        <Col>
+                        <Col xs={12} md={6} lg={4}>
                             <Kpi title={t('kpi.confirmed')} subtitle={t('kpi.permillioninhabitant')} value={confirmed_per_million}
                                  color="#DF7242"/>
                         </Col>
-                        <Col>
+                        <Col xs={12} md={6} lg={4}>
                             <Kpi title={t('kpi.deaths')} subtitle={t('kpi.permillioninhabitant')} value={deaths_per_million}
                                  color="#D0568C"/>
                         </Col>
-                        <Col>
+                        <Col xs={12} md={6} lg={4}>
                             <Kpi title={t('kpi.recovered')} subtitle={t('kpi.permillioninhabitant')} value={recovered_per_million}
                                  color="#23c42b"/>
                         </Col>
                     </Row>
                 </Col>
-                <Col>
+                <Col xs={12} lg={6}>
                     {country_chart_data && <Chart country_chart_data={country_chart_data}/>}
                 </Col>
             </Row>
