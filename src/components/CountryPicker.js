@@ -9,7 +9,7 @@ import chroma from 'chroma-js';
 const animatedComponents = makeAnimated();
 
 const colourStyles = {
-    control: styles => ({...styles, backgroundColor: 'white'}),
+    control: styles => ({...styles, backgroundColor: 'transparent'}),
     option: (styles, {data, isDisabled, isFocused, isSelected}) => {
         const color = chroma(data.color);
         return {
