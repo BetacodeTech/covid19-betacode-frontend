@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import Chart from "./components/Chart";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import {actions} from "./store/infection";
 import {actions as modeActions} from "./store/mode";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,7 +12,6 @@ import CountryPicker from "./components/CountryPicker";
 import {useTranslation} from "react-i18next";
 
 import "./i18n";
-import Info from "./components/Info";
 
 import "./styles/light.css"
 import "./styles/globalStyles.css"
@@ -23,6 +22,7 @@ import CountryData from "./components/CountryData";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import {titles} from "./chart-titles";
 
 function App() {
     const dispatch = useDispatch();
@@ -69,7 +69,6 @@ function App() {
 
     const changeLanguage = (countryCode) => {
         i18n.changeLanguage(countryCode);
-        console.log(countryCode);
     }
 
     return (
@@ -84,36 +83,36 @@ function App() {
                 <Row>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.confirmed')} info={t("modal.confirmed.info")}>
-                            <Chart infectionData={confirmed} selectedCountries={selectedCountries}/>
+                            <Chart infectionData={confirmed} selectedCountries={selectedCountries} content={titles.confirmed}/>
                         </Portlet>
                     </Col>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.confirmedpermillion.info")}>
-                            <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries}/>
+                            <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries} content={titles.confirmed_cases_per_million}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.deaths')} info={t("modal.deaths.info")}>
-                            <Chart infectionData={deaths} selectedCountries={selectedCountries}/>
+                            <Chart infectionData={deaths} selectedCountries={selectedCountries} content={titles.deaths}/>
                         </Portlet>
                     </Col>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.deathspermillion.info")}>
-                            <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries}/>
+                            <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries} content={titles.deaths_cases_per_million}/>
                         </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.recovered')} info={t("modal.recovered.info")}>
-                            <Chart infectionData={recovered} selectedCountries={selectedCountries}/>
+                            <Chart infectionData={recovered} selectedCountries={selectedCountries} content={titles.recovered}/>
                         </Portlet>
                     </Col>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.recoveredpermillion.info")}>
-                            <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries}/>
+                            <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries} content={titles.recovered_cases_per_million}/>
                         </Portlet>
                     </Col>
                 </Row>
