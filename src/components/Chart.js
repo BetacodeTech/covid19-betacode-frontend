@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
 
 import Portlet from "./Portlet";
-
+import {titles} from "../chart-titles";
 
 const getRandomColor = () => {
     var letters = '0123456789ABCDEF';
@@ -15,7 +15,7 @@ const getRandomColor = () => {
     return color;
 };
 
-const CustomTooltip = ({active, payload, label}) => {
+const CustomTooltip = ({active, payload, label, title}) => {
     const infectionData = useSelector(state => state.infection.infectionData);
 
     const {t} = useTranslation();
@@ -29,9 +29,24 @@ const CustomTooltip = ({active, payload, label}) => {
                             <th className="color-primary3">{t('portlet.table.country')}</th>
                             <th className="color-primary3">{t('portlet.table.day')}</th>
                             <th className="color-primary3">{t('portlet.table.date')}</th>
-                            <th className="color-primary3">{t('portlet.table.confirmed')}</th>
-                            <th className="color-primary3">{t('portlet.table.deaths')}</th>
-                            <th className="color-primary3">{t('portlet.table.recovered')}</th>
+                            {title === titles.confirmed &&
+                                <th className="color-primary3">{t('portlet.table.confirmed')}</th>
+                            }
+                            {title === titles.confirmed_cases_per_million &&
+                                <th className="color-primary3">{t('portlet.table.confirmedpermillion')}</th>
+                            }
+                            {title === titles.deaths &&
+                                <th className="color-primary3">{t('portlet.table.deaths')}</th>
+                            }
+                            {title === titles.deaths_cases_per_million &&
+                                <th className="color-primary3">{t('portlet.table.deathspermillion')}</th>
+                            }
+                            {title === titles.recovered &&
+                                <th className="color-primary3">{t('portlet.table.recovered')}</th>
+                            }
+                            {title === titles.recovered_cases_per_million &&
+                                <th className="color-primary3">{t('portlet.table.deathspermillion')}</th>
+                            }
                         </tr>
 
                         {payload.map(data => {
@@ -51,18 +66,36 @@ const CustomTooltip = ({active, payload, label}) => {
                                             <td>
                                                 {infectionEntry.date}
                                             </td>
+                                            {title === titles.confirmed &&
+                                                <td>
+                                                    {infectionEntry.confirmed}
+                                                </td>
+                                            }
+                                            {title === titles.confirmed_cases_per_million &&
                                             <td>
-                                                {infectionEntry.confirmed}
-                                                <br/> {infectionEntry.confirmed_cases_per_million}/Mh
+                                                {infectionEntry.confirmed_cases_per_million}
                                             </td>
+                                            }
+                                            {title === titles.deaths &&
                                             <td>
                                                 {infectionEntry.deaths}
-                                                <br/> {infectionEntry.deaths_cases_per_million}/Mh
                                             </td>
+                                            }
+                                            {title === titles.deaths_cases_per_million &&
+                                            <td>
+                                                {infectionEntry.deaths_cases_per_million}
+                                            </td>
+                                            }
+                                            {title === titles.recovered &&
                                             <td>
                                                 {infectionEntry.recovered}
-                                                <br/> {infectionEntry.recovered_cases_per_million}/Mh
                                             </td>
+                                            }
+                                            {title === titles.recovered_cases_per_million &&
+                                            <td>
+                                                {infectionEntry.recovered_cases_per_million}
+                                            </td>
+                                            }
                                         </tr>
                                     )
                                 }
@@ -81,7 +114,7 @@ const CustomTooltip = ({active, payload, label}) => {
     }
 ;
 
-const Chart = ({infectionData, selectedCountries, title}) => {
+const Chart = ({infectionData, selectedCountries, content}) => {
 
     const mode = useSelector(state => state.mode.mode);
 
@@ -94,7 +127,7 @@ const Chart = ({infectionData, selectedCountries, title}) => {
                 >
                     <YAxis type="number" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
                     <XAxis dataKey="day" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
-                    <Tooltip content={<CustomTooltip/>}/>
+                    <Tooltip content={<CustomTooltip title={content}/>}/>
                     <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
                     {selectedCountries && selectedCountries.map(
                         (country) => <Line type="monotone" dataKey={country.value} stroke={country.color} dot={{fill: country.color, stroke: 'none'}}/>)
