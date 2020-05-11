@@ -27,7 +27,6 @@ const CustomTooltip = ({active, payload, label, title}) => {
                     <table>
                         <tr>
                             <th className="color-primary3">{t('portlet.table.country')}</th>
-                            <th className="color-primary3">{t('portlet.table.day')}</th>
                             <th className="color-primary3">{t('portlet.table.date')}</th>
                             {title === titles.confirmed &&
                                 <th className="color-primary3">{t('portlet.table.confirmed')}</th>
@@ -59,9 +58,6 @@ const CustomTooltip = ({active, payload, label, title}) => {
                                         <tr style={{backgroundColor: bgColor, color: color}}>
                                             <td>
                                                 {infectionEntry.name}
-                                            </td>
-                                            <td>
-                                                {infectionEntry.day}
                                             </td>
                                             <td>
                                                 {infectionEntry.date}
