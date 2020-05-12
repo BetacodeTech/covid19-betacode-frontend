@@ -23,6 +23,7 @@ import CountryData from "./components/CountryData";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import {titles} from "./chart-titles";
+import Loader from "./components/loader/loader";
 
 function App() {
     const dispatch = useDispatch();
@@ -83,37 +84,49 @@ function App() {
                 <Row>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.confirmed')} info={t("modal.confirmed.info")}>
-                            <Chart infectionData={confirmed} selectedCountries={selectedCountries} content={titles.confirmed}/>
+                            <Loader isLoading={confirmed.isLoading}>
+                                <Chart infectionData={confirmed} selectedCountries={selectedCountries} content={titles.confirmed}/>
+                            </Loader>
                         </Portlet>
                     </Col>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.confirmed')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.confirmedpermillion.info")}>
-                            <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries} content={titles.confirmed_cases_per_million}/>
-                        </Portlet>
+                            <Loader isLoading={casesPerMillion.isLoading}>
+                                <Chart infectionData={casesPerMillion} selectedCountries={selectedCountries} content={titles.confirmed_cases_per_million}/>
+                            </Loader>
+                            </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.deaths')} info={t("modal.deaths.info")}>
-                            <Chart infectionData={deaths} selectedCountries={selectedCountries} content={titles.deaths}/>
+                            <Loader isLoading={deaths.isLoading}>
+                                <Chart infectionData={deaths} selectedCountries={selectedCountries} content={titles.deaths}/>
+                            </Loader>
                         </Portlet>
                     </Col>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.deaths')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.deathspermillion.info")}>
-                            <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries} content={titles.deaths_cases_per_million}/>
-                        </Portlet>
+                            <Loader isLoading={deathsPerMillion.isLoading}>
+                                <Chart infectionData={deathsPerMillion} selectedCountries={selectedCountries} content={titles.deaths_cases_per_million}/>
+                            </Loader>
+                            </Portlet>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.recovered')} info={t("modal.recovered.info")}>
-                            <Chart infectionData={recovered} selectedCountries={selectedCountries} content={titles.recovered}/>
-                        </Portlet>
+                            <Loader isLoading={recovered.isLoading}>
+                                <Chart infectionData={recovered} selectedCountries={selectedCountries} content={titles.recovered}/>
+                            </Loader>
+                            </Portlet>
                     </Col>
                     <Col xs={12} md={6}>
                         <Portlet title={t('title.recovered')} subtitle={t('subtitle.permillioninhabitant')} info={t("modal.recoveredpermillion.info")}>
-                            <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries} content={titles.recovered_cases_per_million}/>
-                        </Portlet>
+                            <Loader isLoading={recoveredPerMillion.isLoading}>
+                                <Chart infectionData={recoveredPerMillion} selectedCountries={selectedCountries} content={titles.recovered_cases_per_million}/>
+                            </Loader>
+                            </Portlet>
                     </Col>
                 </Row>
                 {infectionData && Object.keys(infectionData).map((key, index) => {
