@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 
 import Kpi from "./Kpi";
 import Portlet from "./Portlet";
+import Loader from "./loader/loader";
 
 const Chart = ({country_chart_data}) => {
 
@@ -45,7 +46,7 @@ const styles = {
     }
 };
 
-const CountryData = ({country, day, confirmed, deaths, recovered, confirmed_per_million, deaths_per_million, recovered_per_million, country_chart_data}) => {
+const CountryData = ({loading, country, day, confirmed, deaths, recovered, confirmed_per_million, deaths_per_million, recovered_per_million, country_chart_data}) => {
 
     const {t} = useTranslation();
 
@@ -78,7 +79,10 @@ const CountryData = ({country, day, confirmed, deaths, recovered, confirmed_per_
                     </Row>
                 </Col>
                 <Col xs={12} lg={6}>
-                    {country_chart_data && <Chart country_chart_data={country_chart_data}/>}
+                    <Loader isLoading={loading}>
+                    {country_chart_data &&
+                        <Chart country_chart_data={country_chart_data}/>}
+                    </Loader>
                 </Col>
             </Row>
         </Portlet>
