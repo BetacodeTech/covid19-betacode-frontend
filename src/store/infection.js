@@ -2,27 +2,33 @@ const initialState = {
     "infectionData": null,
     "casesPerMillion": {
         "data": [],
-        "countries": []
+        "countries": [],
+        isLoading: true,
     },
     "deathsPerMillion": {
         "data": [],
-        "countries": []
+        "countries": [],
+        isLoading: true,
     },
     "recoveredPerMillion": {
         "data": [],
-        "countries": []
+        "countries": [],
+        isLoading: true,
     },
     "recovered": {
         "data": [],
-        "countries": []
+        "countries": [],
+        isLoading: true,
     },
     "deaths": {
         "data": [],
-        "countries": []
+        "countries": [],
+        isLoading: true,
     },
     "confirmed": {
         "data": [],
-        "countries": []
+        "countries": [],
+        isLoading: true,
     },
     "countriesChartData": {},
     "selectedCountries": [
@@ -58,6 +64,14 @@ export const types = {
     LOAD_CONFIRMED: "LOAD_CONFIRMED",
     LOAD_DEATHS: "LOAD_DEATHS",
     LOAD_RECOVERED: "LOAD_RECOVERED",
+
+    TOGGLE_CASES_PER_MILLION_LOADING: "TOGGLE_CASES_PER_MILLION_LOADING",
+    TOGGLE_DEATHS_PER_MILLION_LOADING: "TOGGLE_DEATHS_PER_MILLION_LOADING",
+    TOGGLE_RECOVERED_PER_MILLION_LOADING: "TOGGLE_RECOVERED_PER_MILLION_LOADING",
+
+    TOGGLE_CASES_LOADING: "TOGGLE_CASES_LOADING",
+    TOGGLE_DEATHS_LOADING: "TOGGLE_DEATHS_LOADING",
+    TOGGLE_RECOVERED_LOADING: "TOGGLE_RECOVERED_LOADING",
 
     LOAD_COUNTRIES_CHART_DATA: "LOAD_COUNTRIES_CHART_DATA",
 
@@ -129,6 +143,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadCasesPerMillion(data));
+                        dispatch(actions.toggleCasesPerMillionLoading(false));
                     });
                 }
             })
@@ -144,6 +159,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadDeathsPerMillion(data));
+                        dispatch(actions.toggleDeathsPerMillionLoading(false));
                     });
                 }
             })
@@ -159,6 +175,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadRecoveredPerMillion(data));
+                        dispatch(actions.toggleRecoveredPerMillionLoading(false));
                     });
                 }
             })
@@ -174,6 +191,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadConfirmed(data));
+                        dispatch(actions.toggleCasesLoading(false));
                     });
                 }
             })
@@ -189,6 +207,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadDeaths(data));
+                        dispatch(actions.toggleDeathsLoading(false));
                     });
                 }
             })
@@ -204,6 +223,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadRecovered(data));
+                        dispatch(actions.toggleRecoveredLoading(false));
                     });
                 }
             })
@@ -268,7 +288,43 @@ export const actions = {
             type: types.SET_SELECTED_COUNTRIES,
             selectedCountries
         }
-    }
+    },
+    "toggleCasesPerMillionLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_CASES_PER_MILLION_LOADING,
+            isLoading
+        }
+    },
+    "toggleDeathsPerMillionLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_DEATHS_PER_MILLION_LOADING,
+            isLoading
+        }
+    },
+    "toggleRecoveredPerMillionLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_RECOVERED_PER_MILLION_LOADING,
+            isLoading
+        }
+    },
+    "toggleCasesLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_CASES_LOADING,
+            isLoading
+        }
+    },
+    "toggleDeathsLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_DEATHS_LOADING,
+            isLoading
+        }
+    },
+    "toggleRecoveredLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_RECOVERED_LOADING,
+            isLoading
+        }
+    },
 };
 
 const infectionReducer = (state = initialState, action) => {
