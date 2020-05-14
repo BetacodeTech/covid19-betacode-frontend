@@ -1,5 +1,6 @@
 {
   "translation": {
+    "country-picker-label": "Select a country",
     "footer.api.description": "Fork this API on GitHub",
     "footer.betacode.description": "Created by",
     "footer.copyright": "© 2020 - Created by",
@@ -17,12 +18,12 @@
     "kpi.permillioninhabitant": "Million of inhabitants",
     "kpi.recovered": "Recovered",
     "modal.close.button": "Close",
-    "modal.confirmed.info": "",
-    "modal.confirmedpermillion.info": "",
-    "modal.deaths.info": "",
-    "modal.deathspermillion.info": "",
-    "modal.recovered.info": "",
-    "modal.recoveredpermillion.info": "",
+    "modal.confirmed.info": "This chart represents the relation between the number of COVID-19 deaths in a country and the time since the country registered the first case of COVID-19.",
+    "modal.confirmedpermillion.info": "This chart represents the relation between the number of COVID-19 cases per million of inhabitants in a country and the time since the  the country registered the first case of COVID-19.",
+    "modal.deaths.info": "This chart represents the relation between the number of COVID-19 deaths in a country and the time since the country registered the first case of COVID-19.",
+    "modal.deathspermillion.info": "This chart represents the relation between the number of COVID-19 deaths per million of inhabitants in a country and the time since the  the country registered the first case of COVID-19.",
+    "modal.recovered.info": "This chart represents the relation between the number of COVID-19 recovered cases in a country and the time since the country registered the first case of COVID-19.",
+    "modal.recoveredpermillion.info": "This chart represents the relation between the number of COVID-19 recovered cases per million of inhabitants in a country and the time since the  the country registered the first case of COVID-19.",
     "portlet.footer": "*Mh - Per million inhabitants",
     "portlet.table.confirmed": "Confirmed",
     "portlet.table.confirmedpermillion": "",
@@ -39,7 +40,6 @@
     "title.confirmed": "Confirmed cases",
     "title.deaths": "Deaths",
     "title.deathspermillion": "Number of Covid-19 deaths per million  inhabitantes",
-    "title.recovered": "Recovered cases",
-    "country-picker-label": "Select a country"
+    "title.recovered": "Recovered cases"
   }
 }
