@@ -36,6 +36,8 @@ function App() {
 
     const infectionData = useSelector(state => state.infection.infectionData);
 
+    const isLoadingCountryChartData = useSelector(state => state.infection.isLoadingCountryChartData);
+
     const countriesChartData = useSelector(state => state.infection.countriesChartData);
 
     const confirmed = useSelector(state => state.infection.confirmed);
@@ -146,6 +148,7 @@ function App() {
                         <Row>
                             <Col>
                                 <CountryData
+                                    loading={isLoadingCountryChartData}
                                     country={country}
                                     day={day}
                                     confirmed={confirmed}

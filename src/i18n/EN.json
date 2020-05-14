@@ -39,6 +39,7 @@
     "title.confirmed": "Confirmed cases",
     "title.deaths": "Deaths",
     "title.deathspermillion": "Number of Covid-19 deaths per million  inhabitantes",
-    "title.recovered": "Recovered cases"
+    "title.recovered": "Recovered cases",
+    "country-picker-label": "Select a country"
   }
 }
