@@ -31,6 +31,7 @@ const initialState = {
         isLoading: true,
     },
     "countriesChartData": {},
+    isLoadingCountryChartData: true,
     "selectedCountries": [
         {value: "PRT", label: "Portugal", color: "#4240A1"},
         {value: "ITA", label: "Italy", color: "#DF7242"},
@@ -78,6 +79,8 @@ export const types = {
     LOAD_COUNTRIES: "LOAD_COUNTRIES",
     LOAD_INFECTION_DATA: "LOAD_INFECTION_DATA",
     SET_SELECTED_COUNTRIES: "SET_SELECTED_COUNTRIES",
+
+    TOGGLE_LOADING_COUNTRY_CHART_DATA: "TOGGLE_LOADING_COUNTRY_CHART_DATA",
 };
 
 
@@ -112,6 +115,7 @@ export const actions = {
                 if (response.ok) {
                     response.json().then(data => {
                         dispatch(actions.loadCountriesChartData(data));
+                        dispatch(actions.toggleCountryChartDataLoading(false));
                     });
                 }
             })
@@ -325,6 +329,12 @@ export const actions = {
             isLoading
         }
     },
+    "toggleCountryChartDataLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_LOADING_COUNTRY_CHART_DATA,
+            isLoadingCountryChartData: isLoading,
+        }
+    }
 };
 
 const infectionReducer = (state = initialState, action) => {
@@ -332,6 +342,9 @@ const infectionReducer = (state = initialState, action) => {
         case types.LOAD_COUNTRIES_CHART_DATA:
             const countriesChartData = action.countriesChartData;
             return {...state, countriesChartData};
+        case types.TOGGLE_LOADING_COUNTRY_CHART_DATA:
+            const isLoadingCountryChartData =  action.isLoadingCountryChartData;
+            return {...state, isLoadingCountryChartData};
         case types.LOAD_CONFIRMED:
             const confirmed = action.confirmed;
             return {...state, confirmed};
