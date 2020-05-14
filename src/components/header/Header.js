@@ -34,45 +34,47 @@ const Header = ({changeLanguage}) => {
           className="d-inline-block align-top"
         />
       </Navbar.Brand>
-      {/*<div className="flags">*/}
-      {/*  <ReactFlagsSelect*/}
-      {/*    defaultCountry={countries[0]}*/}
-      {/*    countries={countries}*/}
-      {/*    customLabels={countryLabels}*/}
-      {/*    placeholder="Select Language"*/}
-      {/*    showSelectedLabel={false}*/}
-      {/*    showOptionLabel={false}*/}
-      {/*    onSelect={handleChangeLanguage}*/}
-      {/*  />*/}
-      {/*</div>*/}
-      <div>
-        <Switch
-          onChange={handleChangeMode}
-          checked={mode === "dark"}
-          height={25}
-          width={50}
-          onColor="#888888"
-          uncheckedIcon={
-            <div
-              style={{
-                paddingLeft: "5px",
-                color: "#fff"
-              }}
-            >
-              <FontAwesomeIcon icon={faMoon}/>
-            </div>
-          }
-          checkedIcon={
-            <div
-              style={{
-                paddingLeft: "5px",
-                color: "#181818",
-              }}
-            >
-              <FontAwesomeIcon icon={faMoon}/>
-            </div>
-          }
-        />
+      <div style={{display: "flex", alignItems: "center"}}>
+        <div className="flags">
+          <ReactFlagsSelect
+            defaultCountry={countries[0]}
+            countries={countries}
+            customLabels={countryLabels}
+            placeholder="Select Language"
+            showSelectedLabel={false}
+            showOptionLabel={false}
+            onSelect={handleChangeLanguage}
+          />
+        </div>
+        <div>
+          <Switch
+            onChange={handleChangeMode}
+            checked={mode === "dark"}
+            height={25}
+            width={50}
+            onColor="#888888"
+            uncheckedIcon={
+              <div
+                style={{
+                  paddingLeft: "5px",
+                  color: "#fff"
+                }}
+              >
+                <FontAwesomeIcon icon={faMoon}/>
+              </div>
+            }
+            checkedIcon={
+              <div
+                style={{
+                  paddingLeft: "5px",
+                  color: "#181818",
+                }}
+              >
+                <FontAwesomeIcon icon={faMoon}/>
+              </div>
+            }
+          />
+        </div>
       </div>
     </Navbar>
   );
