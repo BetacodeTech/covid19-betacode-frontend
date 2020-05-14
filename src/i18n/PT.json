@@ -1,5 +1,6 @@
 {
   "translation": {
+    "country-picker-label": "Selecione um país",
     "footer.api.description": "Fork da API no GitHub",
     "footer.betacode.description": "Criado por",
     "footer.copyright": "© 2020 - Criado por",
@@ -39,7 +40,6 @@
     "title.confirmed": "Casos confirmados",
     "title.deaths": "Mortes",
     "title.deathspermillion": "Mortes causadas por COVID-19 / 1 Milhão de habitantes",
-    "title.recovered": "Casos recuperados",
-    "country-picker-label": "Selecione um país"
+    "title.recovered": "Casos recuperados"
   }
 }
