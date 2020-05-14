@@ -2,6 +2,7 @@ import React from "react";
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import {useDispatch, useSelector} from "react-redux";
+import {useTranslation} from "react-i18next";
 import {actions} from "../store/infection";
 import Card from "./Card";
 import chroma from 'chroma-js';
@@ -60,11 +61,14 @@ const colourStyles = {
 const CountryPicker = () => {
     const listOfCountries = useSelector(state => state.infection.listOfCountries);
     const selectedCountries = useSelector(state => state.infection.selectedCountries);
-    const mode = useSelector(state => state.mode.mode);
 
     const dispatch = useDispatch();
+
+    const {t} = useTranslation();
+
     return (
         <Card size="auto">
+            <h4 className="color-secondary1" style={styles.label}>{t('country-picker-label')}</h4>
             <Select
                 options={listOfCountries}
                 closeMenuOnSelect={false}
@@ -77,6 +81,12 @@ const CountryPicker = () => {
                 isMulti/>
         </Card>
     )
+};
+
+const styles = {
+    label: {
+        marginBottom: "10px",
+    },
 };
 
 export default CountryPicker;

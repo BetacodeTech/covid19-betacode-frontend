@@ -49,6 +49,11 @@
     background-color: #262326;
 }
 
+.dark .recharts-tooltip-wrapper .portlet{
+    background-color: rgba(38, 35, 38, 0.7);
+    box-shadow: none;
+}
+
 .dark .portlet .portlet-head {
     border-bottom: 1px solid #ebedf2;
 }
