@@ -39,6 +39,7 @@
     "title.confirmed": "Casos confirmados",
     "title.deaths": "Mortes",
     "title.deathspermillion": "Mortes causadas por COVID-19 / 1 Milhão de habitantes",
-    "title.recovered": "Casos recuperados"
+    "title.recovered": "Casos recuperados",
+    "country-picker-label": "Selecione um país"
   }
 }
