@@ -123,7 +123,7 @@ const Chart = ({infectionData, selectedCountries, content}) => {
                 >
                     <YAxis type="number" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
                     <XAxis dataKey="day" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
-                    <Tooltip content={<CustomTooltip title={content}/>}/>
+                    <Tooltip content={<CustomTooltip title={content}/>} />
                     <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
                     {selectedCountries && selectedCountries.map(
                         (country) => <Line type="monotone" dataKey={country.value} stroke={country.color} dot={{fill: country.color, stroke: 'none'}}/>)
