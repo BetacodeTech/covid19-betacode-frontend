@@ -30,6 +30,21 @@ const initialState = {
         "countries": [],
         isLoading: true,
     },
+    "dailyConfirmed": {
+        "data": [],
+        "countries": [],
+        isLoading: true,
+    },
+    "dailyDeaths": {
+        "data": [],
+        "countries": [],
+        isLoading: true,
+    },
+    "dailyRecovered": {
+        "data": [],
+        "countries": [],
+        isLoading: true,
+    },
     "countriesChartData": {},
     isLoadingCountryChartData: true,
     "selectedCountries": [
@@ -54,25 +69,34 @@ const initialState = {
     "listOfCountries": []
 };
 
-const api = "https://api.covidcurves.betacode.tech/v1";
-//const api = "http://localhost:5010/v1";
+// const api = "https://api.covidcurves.betacode.tech/v1";
+const api = "http://localhost:5010/v1";
 
 export const types = {
     LOAD_CASES_PER_MILLION: "LOAD_CASES_PER_MILLION",
     LOAD_DEATHS_PER_MILLION: "LOAD_DEATHS_PER_MILLION",
     LOAD_RECOVERED_PER_MILLION: "LOAD_RECOVERED_PER_MILLION",
 
-    LOAD_CONFIRMED: "LOAD_CONFIRMED",
-    LOAD_DEATHS: "LOAD_DEATHS",
-    LOAD_RECOVERED: "LOAD_RECOVERED",
-
     TOGGLE_CASES_PER_MILLION_LOADING: "TOGGLE_CASES_PER_MILLION_LOADING",
     TOGGLE_DEATHS_PER_MILLION_LOADING: "TOGGLE_DEATHS_PER_MILLION_LOADING",
     TOGGLE_RECOVERED_PER_MILLION_LOADING: "TOGGLE_RECOVERED_PER_MILLION_LOADING",
 
+    LOAD_CONFIRMED: "LOAD_CONFIRMED",
+    LOAD_DEATHS: "LOAD_DEATHS",
+    LOAD_RECOVERED: "LOAD_RECOVERED",
+
     TOGGLE_CASES_LOADING: "TOGGLE_CASES_LOADING",
     TOGGLE_DEATHS_LOADING: "TOGGLE_DEATHS_LOADING",
     TOGGLE_RECOVERED_LOADING: "TOGGLE_RECOVERED_LOADING",
+
+
+    LOAD_DAILY_CONFIRMED: "LOAD_DAILY_CONFIRMED",
+    LOAD_DAILY_DEATHS: "LOAD_DAILY_DEATHS",
+    LOAD_DAILY_RECOVERED: "LOAD_DAILY_RECOVERED",
+
+    TOGGLE_DAILY_CONFIRMED_LOADING: "TOGGLE_DAILY_CONFIRMED_LOADING",
+    TOGGLE_DAILY_DEATHS_LOADING: "TOGGLE_DAILY_DEATHS_LOADING",
+    TOGGLE_DAILY_RECOVERED_LOADING: "TOGGLE_DAILY_RECOVERED_LOADING",
 
     LOAD_COUNTRIES_CHART_DATA: "LOAD_COUNTRIES_CHART_DATA",
 
@@ -233,6 +257,54 @@ export const actions = {
             })
         }
     },
+    "getDailyConfirmed": (selectedCountries) => {
+        return (dispatch) => {
+            const countries = actions.getCountriesCommaSepareted(selectedCountries);
+
+            const url = `${api}/infection/confirmed/daily?countries=${countries}`;
+
+            fetch(url).then(response => {
+                if(response.ok) {
+                    response.json().then(data => {
+                        dispatch(actions.loadDailyConfirmed(data));
+                        dispatch(actions.toggleDailyConfirmedLoading(false));
+                    });
+                }
+            })
+        }
+    },
+    "getDailyDeaths": (selectedCountries) => {
+        return (dispatch) => {
+            const countries = actions.getCountriesCommaSepareted(selectedCountries);
+
+            const url = `${api}/infection/deaths/daily?countries=${countries}`;
+
+            fetch(url).then(response => {
+                if(response.ok) {
+                    response.json().then(data => {
+                        dispatch(actions.loadDailyDeaths(data));
+                        dispatch(actions.toggleDailyDeathsLoading(false));
+                    });
+                }
+            })
+        }
+    },
+    "getDailyRecovered": (selectedCountries) => {
+        return (dispatch) => {
+            const countries = actions.getCountriesCommaSepareted(selectedCountries);
+
+            const url = `${api}/infection/recovered/daily?countries=${countries}`;
+
+            fetch(url).then(response => {
+                if(response.ok) {
+                    response.json().then(data => {
+                        dispatch(actions.loadDailyRecovered(data));
+                        dispatch(actions.toggleDailyRecoveredLoading(false));
+                    });
+                }
+            })
+        }
+    },
     "loadCasesPerMillion": (casesPerMillion) => {
         return {
             type: types.LOAD_CASES_PER_MILLION,
@@ -334,6 +406,42 @@ export const actions = {
             type: types.TOGGLE_LOADING_COUNTRY_CHART_DATA,
             isLoadingCountryChartData: isLoading,
         }
+    },
+    "loadDailyConfirmed": (dailyConfirmed) => {
+        return {
+            type: types.LOAD_DAILY_CONFIRMED,
+            dailyConfirmed,
+        }
+    },
+    "loadDailyDeaths": (dailyDeaths) => {
+        return {
+            type: types.LOAD_DAILY_DEATHS,
+            dailyDeaths,
+        }
+    },
+    "loadDailyRecovered": (dailyRecovered) => {
+        return {
+            type: types.LOAD_DAILY_RECOVERED,
+            dailyRecovered,
+        }
+    },
+    "toggleDailyConfirmedLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_DAILY_DEATHS_LOADING,
+            isLoading,
+        }
+    },
+    "toggleDailyDeathsLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_DAILY_DEATHS_LOADING,
+            isLoading,
+        }
+    },
+    "toggleDailyRecoveredLoading": (isLoading) => {
+        return {
+            type: types.TOGGLE_DAILY_RECOVERED_LOADING,
+            isLoading,
+        }
     }
 };
 
@@ -377,6 +485,15 @@ const infectionReducer = (state = initialState, action) => {
             }
 
             return {...state, selectedCountries};
+        case types.LOAD_DAILY_CONFIRMED:
+            const dailyConfirmed = action.dailyConfirmed;
+            return {...state, dailyConfirmed};
+        case types.LOAD_DAILY_DEATHS:
+            const dailyDeaths = action.dailyDeaths;
+            return {...state, dailyDeaths};
+        case types.LOAD_DAILY_RECOVERED:
+            const dailyRecovered = action.dailyRecovered;
+            return {...state, dailyRecovered};
         default:
             return state
     }

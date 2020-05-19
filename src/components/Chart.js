@@ -16,12 +16,12 @@ const getRandomColor = () => {
 };
 
 const CustomTooltip = ({active, payload, label, title}) => {
-    const infectionData = useSelector(state => state.infection.infectionData);
+      const infectionData = useSelector(state => state.infection.infectionData);
 
-    const {t} = useTranslation();
+      const {t} = useTranslation();
 
-    if (active && payload) {
-        return (
+      if (active && payload) {
+          return (
             <Portlet title={t('portlet.title')} subtitle={label}>
                 <div className="chart-tooltip">
                     <table>
@@ -29,22 +29,31 @@ const CustomTooltip = ({active, payload, label, title}) => {
                             <th className="color-primary3">{t('portlet.table.country')}</th>
                             <th className="color-primary3">{t('portlet.table.date')}</th>
                             {title === titles.confirmed &&
-                                <th className="color-primary3">{t('portlet.table.confirmed')}</th>
+                            <th className="color-primary3">{t('portlet.table.confirmed')}</th>
                             }
                             {title === titles.confirmed_cases_per_million &&
-                                <th className="color-primary3">{t('portlet.table.confirmedpermillion')}</th>
+                            <th className="color-primary3">{t('portlet.table.confirmedpermillion')}</th>
                             }
                             {title === titles.deaths &&
-                                <th className="color-primary3">{t('portlet.table.deaths')}</th>
+                            <th className="color-primary3">{t('portlet.table.deaths')}</th>
                             }
                             {title === titles.deaths_cases_per_million &&
-                                <th className="color-primary3">{t('portlet.table.deathspermillion')}</th>
+                            <th className="color-primary3">{t('portlet.table.deathspermillion')}</th>
                             }
                             {title === titles.recovered &&
-                                <th className="color-primary3">{t('portlet.table.recovered')}</th>
+                            <th className="color-primary3">{t('portlet.table.recovered')}</th>
                             }
                             {title === titles.recovered_cases_per_million &&
-                                <th className="color-primary3">{t('portlet.table.deathspermillion')}</th>
+                            <th className="color-primary3">{t('portlet.table.deathspermillion')}</th>
+                            }
+                            {title === titles.daily_confirmed &&
+                            <th className="color-primary3">{t('portlet.table.dailyconfirmed')}</th>
+                            }
+                            {title === titles.daily_deaths &&
+                            <th className="color-primary3">{t('portlet.table.dailydeaths')}</th>
+                            }
+                            {title === titles.daily_recovered &&
+                            <th className="color-primary3">{t('portlet.table.dailyrecovered')}</th>
                             }
                         </tr>
 
@@ -55,44 +64,59 @@ const CustomTooltip = ({active, payload, label, title}) => {
                                     const color = data.stroke;
                                     const bgColor = data.stroke + "0D";
                                     return (
-                                        <tr style={{backgroundColor: bgColor, color: color}}>
-                                            <td>
-                                                {infectionEntry.name}
-                                            </td>
-                                            <td>
-                                                {infectionEntry.date}
-                                            </td>
-                                            {title === titles.confirmed &&
-                                                <td>
-                                                    {infectionEntry.confirmed}
-                                                </td>
-                                            }
-                                            {title === titles.confirmed_cases_per_million &&
-                                            <td>
-                                                {infectionEntry.confirmed_cases_per_million}
-                                            </td>
-                                            }
-                                            {title === titles.deaths &&
-                                            <td>
-                                                {infectionEntry.deaths}
-                                            </td>
-                                            }
-                                            {title === titles.deaths_cases_per_million &&
-                                            <td>
-                                                {infectionEntry.deaths_cases_per_million}
-                                            </td>
-                                            }
-                                            {title === titles.recovered &&
-                                            <td>
-                                                {infectionEntry.recovered}
-                                            </td>
-                                            }
-                                            {title === titles.recovered_cases_per_million &&
-                                            <td>
-                                                {infectionEntry.recovered_cases_per_million}
-                                            </td>
-                                            }
-                                        </tr>
+                                      <tr style={{backgroundColor: bgColor, color: color}}>
+                                          <td>
+                                              {infectionEntry.name}
+                                          </td>
+                                          <td>
+                                              {infectionEntry.date}
+                                          </td>
+                                          {title === titles.confirmed &&
+                                          <td>
+                                              {infectionEntry.confirmed}
+                                          </td>
+                                          }
+                                          {title === titles.confirmed_cases_per_million &&
+                                          <td>
+                                              {infectionEntry.confirmed_cases_per_million}
+                                          </td>
+                                          }
+                                          {title === titles.deaths &&
+                                          <td>
+                                              {infectionEntry.deaths}
+                                          </td>
+                                          }
+                                          {title === titles.deaths_cases_per_million &&
+                                          <td>
+                                              {infectionEntry.deaths_cases_per_million}
+                                          </td>
+                                          }
+                                          {title === titles.recovered &&
+                                          <td>
+                                              {infectionEntry.recovered}
+                                          </td>
+                                          }
+                                          {title === titles.recovered_cases_per_million &&
+                                          <td>
+                                              {infectionEntry.recovered_cases_per_million}
+                                          </td>
+                                          }
+                                          {title === titles.daily_confirmed &&
+                                          <td>
+                                              {infectionEntry.daily_confirmed}
+                                          </td>
+                                          }
+                                          {title === titles.daily_deaths &&
+                                          <td>
+                                              {infectionEntry.daily_deaths}
+                                          </td>
+                                          }
+                                          {title === titles.daily_recovered &&
+                                          <td>
+                                              {infectionEntry.daily_recovered}
+                                          </td>
+                                          }
+                                      </tr>
                                     )
                                 }
                             }
@@ -102,12 +126,12 @@ const CustomTooltip = ({active, payload, label, title}) => {
                     <span className="color-primary4">{t("portlet.footer")}</span>
                 </div>
             </Portlet>
-        );
+          );
 
-    }
+      }
 
-    return null;
-    }
+      return null;
+  }
 ;
 
 const Chart = ({infectionData, selectedCountries, content}) => {
@@ -115,22 +139,22 @@ const Chart = ({infectionData, selectedCountries, content}) => {
     const mode = useSelector(state => state.mode.mode);
 
     return (
-        <div style={styles.chartContainer}>
-            <ResponsiveContainer>
-                <LineChart
-                    data={infectionData.data}
-                    margin={{top: 5, right: 20, left: 10, bottom: 5}}
-                >
-                    <YAxis type="number" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
-                    <XAxis dataKey="day" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
-                    <Tooltip content={<CustomTooltip title={content}/>} />
-                    <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
-                    {selectedCountries && selectedCountries.map(
-                        (country) => <Line type="monotone" dataKey={country.value} stroke={country.color} dot={{fill: country.color, stroke: 'none'}}/>)
-                    }
-                </LineChart>
-            </ResponsiveContainer>
-        </div>
+      <div style={styles.chartContainer}>
+          <ResponsiveContainer>
+              <LineChart
+                data={infectionData.data}
+                margin={{top: 5, right: 20, left: 10, bottom: 5}}
+              >
+                  <YAxis type="number" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
+                  <XAxis dataKey="day" stroke={mode === "dark" ? "rgba(255, 255, 255, 0.70)" : "rgba(0, 0, 0, 0.8)"}/>
+                  <Tooltip content={<CustomTooltip title={content}/>} />
+                  <CartesianGrid stroke={mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "#f5f5f5"}/>
+                  {selectedCountries && selectedCountries.map(
+                    (country) => <Line type="monotone" dataKey={country.value} stroke={country.color} dot={{fill: country.color, stroke: 'none'}}/>)
+                  }
+              </LineChart>
+          </ResponsiveContainer>
+      </div>
     );
 };
 

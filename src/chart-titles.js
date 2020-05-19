@@ -5,4 +5,7 @@ export const titles = {
   deaths_cases_per_million: "deaths_cases_per_million",
   recovered: "recovered",
   recovered_cases_per_million: "recovered_cases_per_million",
+  daily_confirmed: "daily_confirmed",
+  daily_deaths: "daily_deaths",
+  daily_recovered: "daily_recovered",
 }
